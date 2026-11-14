@@ -1,267 +1,648 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shaoyun Yi (易少云)</title>
+
+<!-- MathJax -->
 <script>
-    MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-      svg: { fontCache: 'global' }
-    }; 
-  </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <title>Shaoyun Yi (易少云)</title>
-  <style type="text/css" media="all">
-    body
-    {
-      font-family: "Arial";
-      font-size: 11pt;
-    }
-    .simplelist
-    {
-      padding: 0pt 5pt 0pt 0pt;
-      list-style-type: none;
-      margin: 0;
-    }
-    p.clear
-    {
-      margin: 0;
-      padding: 0;
-      clear: both;
-    }
-    #header
-    {
-      border: thin solid blue;
-    }
-    #header h1
-    {
-      text-align: center;
-      color: blue;
-      font-family: "Times New Roman", serif;
-      font-style: italic;
-      font-size: 240%;
-      padding: 0px;
-    }
-    #main
-    {
-      color: black;
-      padding: 10pt 10pt 10pt 10pt;
-      margin: 0pt;
-    }
-    #address
-    {
-      margin: 0;
-      padding: 0;
-      line-height: 1.2em;
-    }
-    #picture
-    {
-      float: left;
-      padding: 0 5pt 0pt 0;
-      margin: 0;
-    }
-    #footer
-    {
-      border-top: thin solid black;
-      margin: 0pt 0 5pt 0;
-      padding: 5pt 0 5pt 5pt;
-    }
-    div#footer a
-    {
-      font-size: 80%;
-      font-family: arial, sans-serif;
-      color: darkslategray;
-      margin-right: 5pt;
-    }
-    div#footer a:hover
-    {
-      font-size: 80%;
-      font-family: arial, sans-serif;
-      color: black;
-      margin-right: 5pt;
-    }
-    span.at:before
-    {
-      content: "@";
-    }
-  </style>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<style>
+
+/* General layout */
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  color: black;
+  margin: 0;
+}
+
+#main {
+  padding: 10pt;
+  max-width: 1200px;
+}
+
+a {
+  color: #0000ee;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #999;
+  margin: 18px 0;
+}
+
+/* Personal information */
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.profile-picture img {
+  border: thin solid black;
+  height: 11em;
+  width: auto;
+}
+
+.profile-info {
+  line-height: 1.35;
+}
+
+.profile-name {
+  font-size: 130%;
+  margin-bottom: 18px;
+}
+
+.profile-address {
+  margin-bottom: 18px;
+}
+
+.profile-info p {
+  margin: 0;
+}
+
+/* Main navigation */
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 36px;
+  margin: 1em 0;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.main-nav a {
+  text-decoration: none;
+}
+
+/* Research interests */
+
+.research-list {
+  list-style-type: square;
+  padding-left: 22px;
+  line-height: 1.7;
+}
+
+.research-list li {
+  margin-bottom: 10px;
+}
+
+.paper-ref {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Publications */
+
+.publications {
+  line-height: 1.5;
+  padding-left: 40px;
+}
+
+.publications li {
+  margin-bottom: 16px;
+}
+
+.publications a,
+.useful-links a {
+  text-decoration: none;
+}
+
+.publications a:hover,
+.useful-links a:hover,
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Useful links */
+
+.useful-links {
+  padding-left: 22px;
+  line-height: 1.6;
+}
+
+.useful-links li {
+  margin-bottom: 15px;
+}
+
+.useful-links a {
+  display: inline-block;
+  margin-right: 18px;
+  margin-bottom: 4px;
+}
+
+/* Internal navigation */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.publications li {
+  scroll-margin-top: 15px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+
+  #main {
+    padding: 12px;
+  }
+
+  .profile {
+    gap: 12px;
+  }
+
+  .profile-picture img {
+    height: 9em;
+  }
+
+  .main-nav {
+    gap: 12px 22px;
+  }
+
+  .publications {
+    padding-left: 30px;
+  }
+
+  .research-list {
+    padding-left: 20px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+</style>
 </head>
+
 <body>
+
 <div id="main">
-<table>
-    <tr>
-      <td style="padding-right: 10px"><img src="Shaoyun.jpg" style="border: thin solid black; padding: 0; height: 11em;"></td>
-      <td style="vertical-align: top">
-        <table style="border-collapse:collapse;">
-          <tr><td colspan="2" style="font-size: 130%; padding-bottom: 18px;">Shaoyun Yi (<a  href="https://math.xmu.edu.cn/info/1083/17409.htm" style="text-decoration: none">易少云</a>)</td></tr>
-          <tr><td colspan="2">Xiamen University</td></tr>
-          <tr><td colspan="2">School of Mathematical Sciences</td></tr>
-          <tr><td colspan="2" style="padding-bottom: 18px;"> Xiamen, Fujian 361005, China</td></tr>
-          <tr><td>E-mail: yishaoyun926@xmu.edu.cn</td></tr>
-          <tr><td>Office: B515</td></tr>
-        </table>
-      </td>
-    </tr>
-  </table>
 
-<p class="clear" />
-Welcome! I am a tenure-track Assistant Professor at Xiamen University. Here is my <a href="Shaoyun_CV.pdf" style="text-decoration: none">CV</a>.
+<!-- ================================================== -->
+<!-- Personal Information -->
+<!-- ================================================== -->
 
-<hr />
-<h3><a href="teach.html" style="text-decoration: none">Teaching</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="seminarXMU.html" style="text-decoration: none">Seminar</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="talk.html" style="text-decoration: none">Selected Talks</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="miscellany.html" style="text-decoration: none">Miscellany</a></h3>
+<div class="profile">
 
-<hr/>
+  <div class="profile-picture">
+    <img src="Shaoyun.jpg" alt="Shaoyun Yi">
+  </div>
+
+  <div class="profile-info">
+
+    <div class="profile-name">
+      Shaoyun Yi
+      (<a href="https://math.xmu.edu.cn/info/1083/17409.htm"
+          style="text-decoration: none;">易少云</a>)
+    </div>
+
+    <div class="profile-address">
+      <p>Xiamen University</p>
+      <p>School of Mathematical Sciences</p>
+      <p>Xiamen, Fujian 361005, China</p>
+    </div>
+
+    <p>E-mail: yishaoyun926@xmu.edu.cn</p>
+    <p>Office: B515</p>
+
+  </div>
+</div>
+
+<p>
+Welcome! I am a tenure-track Assistant Professor at
+Xiamen University. Here is my
+<a href="Shaoyun_CV.pdf" style="text-decoration: none;">CV</a>.
+</p>
+
+
+<!-- ================================================== -->
+<!-- Navigation -->
+<!-- ================================================== -->
+
+<hr>
+
+<nav class="main-nav">
+  <a href="teach.html">Teaching</a>
+  <a href="seminarXMU.html">Seminar</a>
+  <a href="talk.html">Selected Talks</a>
+  <a href="miscellany.html">Miscellany</a>
+</nav>
+
+
+<!-- ================================================== -->
+<!-- Research Interests -->
+<!-- ================================================== -->
+
+<hr>
+
 <h3>Research Interests</h3>
-Number Theory & Representation Theory & Dynamical Systems
 
-<hr/>
-<h3>Publications and Preprints</h3>
-<ol class="Publications and Preprints" reversed>
-<li><b><a> When GL(2) cusp forms meet CM points in GSp(4)</a></b> (with <a  href="https://sites.google.com/view/shenghaohua" style="text-decoration: none">Shenghao Hua</a>).
-<br><i>Submitted</i>, 2026.&nbsp [<a href="https://arxiv.org/pdf/2611.02748.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
+<p>
+<strong>Number Theory</strong> &amp;
+<strong>Representation Theory</strong> &amp;
+<strong>Dynamical Systems</strong>
+</p>
 
-<li><b><a> The Borisov--Nuer conjecture and root decompositions in even unimodular Lorentzian lattices</a></b> (with <a  href="https://sites.google.com/view/haowu-wang-homepage" style="text-decoration: none">Haowu Wang</a>).
-<br><i>Submitted</i>, 2026.&nbsp [<a href="https://arxiv.org/pdf/2610.38414.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
+<ul class="research-list">
 
-<li><b><a> Averaged dynamical generalizations of Chowla's conjecture</a></b> (with <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Submitted</i>, 2026.&nbsp [<a href="https://arxiv.org/pdf/2609.14492.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
+<li>
+Automorphic Forms and Representations, $L$-functions.
+See
+<a class="paper-ref" href="#Kligen-p2-thesis">[1],</a>
+<a class="paper-ref" href="#Kligen-p2-RJ">[2],</a>
+<a class="paper-ref" href="#GSp4-counting-FM">[3],</a>
+<a class="paper-ref" href="#SMF-Congruences-RJ">[5],</a>
+<a class="paper-ref" href="#ES-E2-RMJ">[7],</a>
+<a class="paper-ref" href="#SMF-Kl4-Mathematika">[9],</a>
+<a class="paper-ref" href="#SMF-distinguishing-IJNT">[10],</a>
+<a class="paper-ref" href="#Paramodular-SMO-Mathematika">[13],</a>
+<a href="#GSp4-sym-cube-preprint">[21]</a>.
+</li>
 
-<li><b><a> Dynamical generalizations of the two-point Chowla conjecture</a></b> (with <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Submitted</i>, 2026.&nbsp [<a href="https://arxiv.org/pdf/2610.16394.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
+<li>
+Analytic Number Theory and Ergodic Theory.
+See
+<a class="paper-ref" href="#Alladi-FFA">[4],</a>
+<a class="paper-ref" href="#Alladi-RJ">[6],</a>
+<a class="paper-ref" href="#EK-PNT-CMS">[8],</a>
+<a class="paper-ref" href="#DS-squarefree-AA">[15],</a>
+<a class="paper-ref" href="#DS-PNT-polynomial-JNT">[16],</a>
+<a class="paper-ref" href="#DS-squarefull-kernel-preprint">[17],</a>
+<a class="paper-ref" href="#DS-Chowla-preprint">[18],</a>
+<a href="#DS-ave-Chowla-preprint">[19]</a>.
+</li>
 
-<li><b><a> Asymptotic uncorrelations between functions with squarefull kernel and functions of invariant average</a></b> (with Xiang Su and <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Submitted</i>, 2026.&nbsp [<a href="https://arxiv.org/pdf/2608.05470.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
+<li>
+Algebraic and Combinatorial Number Theory.
+See
+<a class="paper-ref" href="#CS-number-fields-preprint">[11],</a>
+<a class="paper-ref" href="#CS-finite-fields-PAMS">[12],</a>
+<a class="paper-ref" href="#CS-function-fields-JNT">[14],</a>
+<a href="#CS-distinct-moduli-preprint">[22]</a>.
+</li>
 
-<li><b><a> The prime number theorem over integers of power-free polynomial values</a></b> (with <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Journal of Number Theory</i> 283 (2026), 216-229.&nbsp [<a href="https://arxiv.org/pdf/2504.00804.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1016/j.jnt.2025.12.006" style="text-decoration: none">DOI</a>].
-<br>
-<br>
+<li>
+Lattice Theory and Quadratic Forms.
+See <a href="#QF-BNconj-preprint">[20]</a>.
+</li>
 
-<li><b><a> Some ergodic theorems over squarefree numbers and squarefull numbers</a></b> (with <a  href="https://my.nankai.edu.cn/sms/lhx/list.htm" style="text-decoration: none">Huixi Li</a>, <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a> and <a href="http://139.155.71.72:81/HomePage.aspx?ID=1094" style="text-decoration: none">Chunlin Wang</a>).
-<br><i>Acta Arithmetica</i> 221 (2025), no. 2, 117-140.&nbsp [<a href="https://arxiv.org/pdf/2405.18157.pdf" style="text-decoration: none">arXiv</a>, <a href="https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/online/116175/some-ergodic-theorems-over-squarefree-numbers-and-squarefull-numbers" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a> On Erd&#337s covering systems in global function fields</a></b> (with <a  href="https://my.nankai.edu.cn/sms/lhx/list.htm" style="text-decoration: none">Huixi Li</a>, <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a> and <a href="http://139.155.71.72:81/HomePage.aspx?ID=1094" style="text-decoration: none">Chunlin Wang</a>).
-<br><i>Journal of Number Theory</i> 266 (2025), 269-280.&nbsp [<a href="https://arxiv.org/pdf/2402.03810.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1016/j.jnt.2024.07.002" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a> Some remarks on strong multiplicity one for paramodular forms</a></b> (with <a href="https://www.xiyuanwang.website" style="text-decoration: none">Xiyuan Wang</a>, <a  href="https://weizhining.github.io" style="text-decoration: none">Zhining Wei</a> and <a  href="https://sites.google.com/math.arizona.edu/panyan" style="text-decoration: none">Pan Yan</a>).
-<br><i>Mathematika</i> 72 (2026), no. 2, Paper No. e70098, 32 pp.&nbsp [<a href="https://arxiv.org/pdf/2310.17144.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1112/mtk.70098" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a> On Covering Systems of Polynomial Rings over Finite Fields</a></b> (with <a  href="https://my.nankai.edu.cn/sms/lhx/list.htm" style="text-decoration: none">Huixi Li</a>, <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a> and <a href="http://139.155.71.72:81/HomePage.aspx?ID=1094" style="text-decoration: none">Chunlin Wang</a>).
-<br><i>Proceedings of the American Mathematical Society</i> 152 (2024), no. 9, 3731-3742.&nbsp [<a href="https://arxiv.org/pdf/2308.05378.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1090/proc/16864" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a> On the minimum modulus problem in number fields</a></b> (with <a  href="https://my.nankai.edu.cn/sms/lhx/list.htm" style="text-decoration: none">Huixi Li</a> and <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Submitted</i>, 2023.&nbsp [<a href="https://arxiv.org/pdf/2302.05946.pdf" style="text-decoration: none">arXiv</a>].
-<br>
-<br>
-
-<li><b><a> On distinguishing Siegel cusp forms of degree two</a></b> (with <a  href="https://weizhining.github.io" style="text-decoration: none">Zhining Wei</a>).
-<br><i>International Journal of Number Theory</i> 22 (2026), no. 8, 1707-1723.&nbsp [<a href="https://arxiv.org/pdf/2207.13234.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1142/S1793042126500879" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a> Dimension formulas for Siegel modular forms of level  4</a></b> (with <a  href="https://manamiroy.github.io/index.html" style="text-decoration: none">Manami Roy</a> and <a  href="http://www.math.unt.edu/~schmidt/" style="text-decoration: none">Ralf Schmidt</a>, and with an appendix by <a  href="https://faculty.fordham.edu/poor/" style="text-decoration: none">Cris Poor</a> and <a  href="http://yuen.siegelmodularforms.org" style="text-decoration: none">David Yuen</a>).
-<br><i>Mathematika</i> 69 (2023), no. 3, 795-840.&nbsp [<a href="https://arxiv.org/pdf/2207.02747.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1112/mtk.12207" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Generalizations of the Erd&#337s-Kac Theorem and the Prime Number Theorem</a></b> (with <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>, <a  href="https://weizhining.github.io" style="text-decoration: none">Zhining Wei</a> and <a  href="https://sites.google.com/math.arizona.edu/panyan" style="text-decoration: none">Pan Yan</a>).
-<br><i>Communications in Mathematics and Statistics</i> 13 (2025), no. 5, 1177-1197.&nbsp [<a href="https://arxiv.org/pdf/2303.05803.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1007/s40304-023-00354-6" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Classical and adelic Eisenstein series</a></b> (with <a  href="https://manamiroy.github.io/index.html" style="text-decoration: none">Manami Roy</a> and <a  href="http://www.math.unt.edu/~schmidt/" style="text-decoration: none">Ralf Schmidt</a>).
-<br><i>Rocky Mountain Journal of Mathematics</i> 56 (2026), no. 3, 817-852.&nbsp [<a href="https://arxiv.org/pdf/2109.07649.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1216/rmj.2026.56.817" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Generalizations of Alladi's formula for arithmetical semigroups</a></b> (with <a  href="https://ims.shanghaitech.edu.cn/2022/0825/c4741a791131/page.htm" style="text-decoration: none">Lian Duan</a> and <a  href="https://sites.google.com/view/ning1728/home" style="text-decoration: none">Ning Ma</a>).
-<br><i>The Ramanujan Journal</i> 58 (2022), no. 4, 1285-1319.&nbsp [<a href="https://arxiv.org/pdf/2102.08568.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1007/s11139-021-00531-7" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Congruences for dimensions of spaces of Siegel cusp forms and 4-core partitions</a></b> (with <a  href="https://sites.google.com/view/chiranjitray/home" style="text-decoration: none">Chiranjit Ray</a> and <a  href="https://manamiroy.github.io/index.html" style="text-decoration: none">Manami Roy</a>).
-<br><i>The Ramanujan Journal</i> 58 (2022), no. 4, 1011-1023.&nbsp [<a href="https://rdcu.be/cuLj5" style="text-decoration: none">SharedIt link</a>, <a href="https://arxiv.org/pdf/2104.09710.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1007/s11139-021-00481-0" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Analogues of Alladi's formula over global function fields</a></b> (with <a  href="https://ims.shanghaitech.edu.cn/2022/0825/c4741a791131/page.htm" style="text-decoration: none">Lian Duan</a> and <a  href="https://orcid.org/0000-0003-1105-6299" style="text-decoration: none">Biao Wang</a>).
-<br><i>Finite Fields and Their Applications</i> 74 (2021), 101874, 26 pp.&nbsp [<a href="https://arxiv.org/pdf/2010.11069.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1016/j.ffa.2021.101874" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>On counting cuspidal automorphic representations for GSp(4)</a></b> (with <a  href="https://manamiroy.github.io/index.html" style="text-decoration: none">Manami Roy</a> and <a  href="http://www.math.unt.edu/~schmidt/" style="text-decoration: none">Ralf Schmidt</a>).
-<br><i>Forum Mathematicum</i> 33 (2021), no. 3, 821-843.&nbsp [<a href="https://arxiv.org/pdf/2010.09996.pdf" style="text-decoration: none">arXiv</a>, <a href="https://doi.org/10.1515/forum-2020-0313" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Klingen $\mathfrak{p}^2$ vectors for GSp(4)</a></b>.
-<br><i>The Ramanujan Journal</i> 54 (2021), no. 3, 511-554.&nbsp [<a href="https://rdcu.be/b5Pzi" style="text-decoration: none">SharedIt link</a>, <a href="https://doi.org/10.1007/s11139-020-00284-9" style="text-decoration: none">DOI</a>].
-<br>
-<br>
-
-<li><b><a>Klingen vectors of level 2 for GSp(4)</a></b>.
-<br><i>Ph.D. Thesis, University of Oklahoma</i>, 2019.&nbsp [<a href="https://hdl.handle.net/11244/319553" style="text-decoration: none">PDF</a>].   
-</ol>
-
-<hr />
-<h3>Useful Math Links</h3>
-<ul>
-<li><a href="https://dlmf.nist.gov" style="text-decoration: none">DLMF</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="http://www.lmfdb.org/" style="text-decoration: none">LMFDB</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="http://gsp4explorer.org/gsp4org/gsp4_htdocs/index_dev.htm" style="text-decoration: none">GSp4.org</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="http://smf.compositio.nl/" style="text-decoration: none">Siegel Modular Forms of Degree 2 and 3</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="http://siegelmodularforms.org" style="text-decoration: none">Siegel Modular Forms Computation Pages</a>
-<br>
-<br>
-
-<li><a href="https://arxiv.org/list/math.NT/recent" style="text-decoration: none">Number Theory in arXiv</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://math.ou.edu/~kmartin/afrefs.html" style="text-decoration: none">Automorphic Forms Online References on Kimball Martin's Page</a> &nbsp&nbsp&nbsp&nbsp&nbsp 
-<a href="https://mathscinet.ams.org/mathscinet" style="text-decoration: none">MathSciNet</a> &nbsp&nbsp&nbsp&nbsp&nbsp 
-<a href="https://www.genealogy.math.ndsu.nodak.edu/index.php" style="text-decoration: none">Mathematics Genealogy Project</a>
-<br>
-<br>
-
-<li><a href="http://www.numbertheory.org/ntw/N3.html" style="text-decoration: none">Number Theory Conferences</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://researchseminars.org" style="text-decoration: none">researchseminars.org</a> &nbsp&nbsp
-<a href="https://researchseminars.org/seminar/IntSemAutForms" style="text-decoration: none">International Seminar on Automorphic Forms</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://mathweb.ucsd.edu/~kedlaya/cgi-bin/confs.cgi" style="text-decoration: none">Kiran S. Kedlaya's Conference Page in Arithmetic Geometry</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://mathmeetings.net" style="text-decoration: none">MathMeetings.net</a>
-<br>
-<br>
-
-<li><a href="http://automorphicformsworkshop.org/" style="text-decoration: none">AFW (Automorphic Forms Workshop)</a> &nbsp&nbsp&nbsp&nbsp&nbsp 
-<a href="https://swc-math.github.io/aws/2024/index.html" style="text-decoration: none">Arizona Winter School</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://www.msri.org/web/msri/scientific/programs" style="text-decoration: none">MSRI Programs</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://icerm.brown.edu/programs/" style="text-decoration: none">ICERM Programs</a> 
-<br>
-<br>
-
-<li><a href="http://www.math.unt.edu/~richter/TORA.html" style="text-decoration: none">TORA (Texas-Oklahoma Representations and Automorphic forms)</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://www.math.uni-bonn.de/people/fintzen/2022MRTC/iabout.html" style="text-decoration: none">Midwest Representation Theory Conference</a> &nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://people.math.sc.edu/boylan/pantshome.html" style="text-decoration: none">PANTS (Palmetto Number Theory Series)</a> 
 </ul>
 
-<hr/>
+
+<!-- ================================================== -->
+<!-- Publications and Preprints -->
+<!-- ================================================== -->
+
+<hr>
+
+<h3>Publications and Preprints</h3>
+
+<ol class="publications" reversed start="22">
+
+<li id="CS-distinct-moduli-preprint">
+<strong>On the moduli of distinct covering systems</strong>
+(with Xiangjun Dai,
+<a href="https://my.nankai.edu.cn/sms/lhx/list.htm">Huixi Li</a>
+and Junfeng Li).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2611.15110.pdf">arXiv</a>].
+</li>
+
+<li id="GSp4-sym-cube-preprint">
+<strong>When GL(2) cusp forms meet CM points in GSp(4)</strong>
+(with
+<a href="https://sites.google.com/view/shenghaohua">Shenghao Hua</a>).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2611.02748.pdf">arXiv</a>].
+</li>
+
+<li id="QF-BNconj-preprint">
+<strong>The Borisov--Nuer conjecture and root decompositions
+in even unimodular Lorentzian lattices</strong>
+(with
+<a href="https://sites.google.com/view/haowu-wang-homepage">Haowu Wang</a>).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2610.38414.pdf">arXiv</a>].
+</li>
+
+<li id="DS-ave-Chowla-preprint">
+<strong>Averaged dynamical generalizations of Chowla's conjecture</strong>
+(with
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2609.14492.pdf">arXiv</a>].
+</li>
+
+<li id="DS-Chowla-preprint">
+<strong>Dynamical generalizations of the two-point Chowla conjecture</strong>
+(with
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2610.16394.pdf">arXiv</a>].
+</li>
+
+<li id="DS-squarefull-kernel-preprint">
+<strong>Asymptotic uncorrelations between functions with squarefull
+kernel and functions of invariant average</strong>
+(with Xiang Su and
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Submitted</i>, 2026.
+[<a href="https://arxiv.org/pdf/2608.05470.pdf">arXiv</a>].
+</li>
+
+<li id="DS-PNT-polynomial-JNT">
+<strong>The prime number theorem over integers of power-free
+polynomial values</strong>
+(with
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Journal of Number Theory</i> 283 (2026), 216-229.
+[<a href="https://arxiv.org/pdf/2504.00804.pdf">arXiv</a>,
+<a href="https://doi.org/10.1016/j.jnt.2025.12.006">DOI</a>].
+</li>
+
+<li id="DS-squarefree-AA">
+<strong>Some ergodic theorems over squarefree numbers and
+squarefull numbers</strong>
+(with
+<a href="https://my.nankai.edu.cn/sms/lhx/list.htm">Huixi Li</a>,
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>
+and
+<a href="http://139.155.71.72:81/HomePage.aspx?ID=1094">Chunlin Wang</a>).
+<br>
+<i>Acta Arithmetica</i> 221 (2025), no. 2, 117-140.
+[<a href="https://arxiv.org/pdf/2405.18157.pdf">arXiv</a>,
+<a href="https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/online/116175/some-ergodic-theorems-over-squarefree-numbers-and-squarefull-numbers">DOI</a>].
+</li>
+
+<li id="CS-function-fields-JNT">
+<strong>On Erd&#337;s covering systems in global function fields</strong>
+(with
+<a href="https://my.nankai.edu.cn/sms/lhx/list.htm">Huixi Li</a>,
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>
+and
+<a href="http://139.155.71.72:81/HomePage.aspx?ID=1094">Chunlin Wang</a>).
+<br>
+<i>Journal of Number Theory</i> 266 (2025), 269-280.
+[<a href="https://arxiv.org/pdf/2402.03810.pdf">arXiv</a>,
+<a href="https://doi.org/10.1016/j.jnt.2024.07.002">DOI</a>].
+</li>
+
+<li id="Paramodular-SMO-Mathematika">
+<strong>Some remarks on strong multiplicity one for paramodular
+forms</strong>
+(with
+<a href="https://www.xiyuanwang.website">Xiyuan Wang</a>,
+<a href="https://weizhining.github.io">Zhining Wei</a>
+and
+<a href="https://sites.google.com/math.arizona.edu/panyan">Pan Yan</a>).
+<br>
+<i>Mathematika</i> 72 (2026), no. 2,
+Paper No. e70098, 32 pp.
+[<a href="https://arxiv.org/pdf/2310.17144.pdf">arXiv</a>,
+<a href="https://doi.org/10.1112/mtk.70098">DOI</a>].
+</li>
+
+<li id="CS-finite-fields-PAMS">
+<strong>On Covering Systems of Polynomial Rings over Finite Fields</strong>
+(with
+<a href="https://my.nankai.edu.cn/sms/lhx/list.htm">Huixi Li</a>,
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>
+and
+<a href="http://139.155.71.72:81/HomePage.aspx?ID=1094">Chunlin Wang</a>).
+<br>
+<i>Proceedings of the American Mathematical Society</i>
+152 (2024), no. 9, 3731-3742.
+[<a href="https://arxiv.org/pdf/2308.05378.pdf">arXiv</a>,
+<a href="https://doi.org/10.1090/proc/16864">DOI</a>].
+</li>
+
+<li id="CS-number-fields-preprint">
+<strong>On the minimum modulus problem in number fields</strong>
+(with
+<a href="https://my.nankai.edu.cn/sms/lhx/list.htm">Huixi Li</a>
+and
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Submitted</i>, 2023.
+[<a href="https://arxiv.org/pdf/2302.05946.pdf">arXiv</a>].
+</li>
+
+<li id="SMF-distinguishing-IJNT">
+<strong>On distinguishing Siegel cusp forms of degree two</strong>
+(with
+<a href="https://weizhining.github.io">Zhining Wei</a>).
+<br>
+<i>International Journal of Number Theory</i>
+22 (2026), no. 8, 1707-1723.
+[<a href="https://arxiv.org/pdf/2207.13234.pdf">arXiv</a>,
+<a href="https://doi.org/10.1142/S1793042126500879">DOI</a>].
+</li>
+
+<li id="SMF-Kl4-Mathematika">
+<strong>Dimension formulas for Siegel modular forms of level 4</strong>
+(with
+<a href="https://manamiroy.github.io/index.html">Manami Roy</a>
+and
+<a href="http://www.math.unt.edu/~schmidt/">Ralf Schmidt</a>,
+and with an appendix by
+<a href="https://faculty.fordham.edu/poor/">Cris Poor</a>
+and
+<a href="http://yuen.siegelmodularforms.org">David Yuen</a>).
+<br>
+<i>Mathematika</i> 69 (2023), no. 3, 795-840.
+[<a href="https://arxiv.org/pdf/2207.02747.pdf">arXiv</a>,
+<a href="https://doi.org/10.1112/mtk.12207">DOI</a>].
+</li>
+
+<li id="EK-PNT-CMS">
+<strong>Generalizations of the Erd&#337;s-Kac Theorem and
+the Prime Number Theorem</strong>
+(with
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>,
+<a href="https://weizhining.github.io">Zhining Wei</a>
+and
+<a href="https://sites.google.com/math.arizona.edu/panyan">Pan Yan</a>).
+<br>
+<i>Communications in Mathematics and Statistics</i>
+13 (2025), no. 5, 1177-1197.
+[<a href="https://arxiv.org/pdf/2303.05803.pdf">arXiv</a>,
+<a href="https://doi.org/10.1007/s40304-023-00354-6">DOI</a>].
+</li>
+
+<li id="ES-E2-RMJ">
+<strong>Classical and adelic Eisenstein series</strong>
+(with
+<a href="https://manamiroy.github.io/index.html">Manami Roy</a>
+and
+<a href="http://www.math.unt.edu/~schmidt/">Ralf Schmidt</a>).
+<br>
+<i>Rocky Mountain Journal of Mathematics</i>
+56 (2026), no. 3, 817-852.
+[<a href="https://arxiv.org/pdf/2109.07649.pdf">arXiv</a>,
+<a href="https://doi.org/10.1216/rmj.2026.56.817">DOI</a>].
+</li>
+
+<li id="Alladi-RJ">
+<strong>Generalizations of Alladi's formula for arithmetical
+semigroups</strong>
+(with
+<a href="https://ims.shanghaitech.edu.cn/2022/0825/c4741a791131/page.htm">Lian Duan</a>
+and
+<a href="https://sites.google.com/view/ning1728/home">Ning Ma</a>).
+<br>
+<i>The Ramanujan Journal</i>
+58 (2022), no. 4, 1285-1319.
+[<a href="https://arxiv.org/pdf/2102.08568.pdf">arXiv</a>,
+<a href="https://doi.org/10.1007/s11139-021-00531-7">DOI</a>].
+</li>
+
+<li id="SMF-Congruences-RJ">
+<strong>Congruences for dimensions of spaces of Siegel cusp forms
+and 4-core partitions</strong>
+(with
+<a href="https://sites.google.com/view/chiranjitray/home">Chiranjit Ray</a>
+and
+<a href="https://manamiroy.github.io/index.html">Manami Roy</a>).
+<br>
+<i>The Ramanujan Journal</i>
+58 (2022), no. 4, 1011-1023.
+[<a href="https://rdcu.be/cuLj5">SharedIt link</a>,
+<a href="https://arxiv.org/pdf/2104.09710.pdf">arXiv</a>,
+<a href="https://doi.org/10.1007/s11139-021-00481-0">DOI</a>].
+</li>
+
+<li id="Alladi-FFA">
+<strong>Analogues of Alladi's formula over global function fields</strong>
+(with
+<a href="https://ims.shanghaitech.edu.cn/2022/0825/c4741a791131/page.htm">Lian Duan</a>
+and
+<a href="https://orcid.org/0000-0003-1105-6299">Biao Wang</a>).
+<br>
+<i>Finite Fields and Their Applications</i>
+74 (2021), 101874, 26 pp.
+[<a href="https://arxiv.org/pdf/2010.11069.pdf">arXiv</a>,
+<a href="https://doi.org/10.1016/j.ffa.2021.101874">DOI</a>].
+</li>
+
+<li id="GSp4-counting-FM">
+<strong>On counting cuspidal automorphic representations for GSp(4)</strong>
+(with
+<a href="https://manamiroy.github.io/index.html">Manami Roy</a>
+and
+<a href="http://www.math.unt.edu/~schmidt/">Ralf Schmidt</a>).
+<br>
+<i>Forum Mathematicum</i>
+33 (2021), no. 3, 821-843.
+[<a href="https://arxiv.org/pdf/2010.09996.pdf">arXiv</a>,
+<a href="https://doi.org/10.1515/forum-2020-0313">DOI</a>].
+</li>
+
+<li id="Kligen-p2-RJ">
+<strong>Klingen $\mathfrak{p}^2$ vectors for GSp(4)</strong>.
+<br>
+<i>The Ramanujan Journal</i>
+54 (2021), no. 3, 511-554.
+[<a href="https://rdcu.be/b5Pzi">SharedIt link</a>,
+<a href="https://doi.org/10.1007/s11139-020-00284-9">DOI</a>].
+</li>
+
+<li id="Kligen-p2-thesis">
+<strong>Klingen vectors of level 2 for GSp(4)</strong>.
+<br>
+<i>Ph.D. Thesis, University of Oklahoma</i>, 2019.
+[<a href="https://hdl.handle.net/11244/319553">PDF</a>].
+</li>
+
+</ol>
+
+
+<!-- ================================================== -->
+<!-- Useful Math Links -->
+<!-- ================================================== -->
+
+<hr>
+
+<h3>Useful Math Links</h3>
+
+<ul class="useful-links">
+
+<li>
+<a href="https://dlmf.nist.gov">DLMF</a>
+<a href="http://www.lmfdb.org/">LMFDB</a>
+<a href="http://gsp4explorer.org/gsp4org/gsp4_htdocs/index_dev.htm">GSp4.org</a>
+<a href="http://smf.compositio.nl/">Siegel Modular Forms of Degree 2 and 3</a>
+<a href="http://siegelmodularforms.org">Siegel Modular Forms Computation Pages</a>
+</li>
+
+<li>
+<a href="https://arxiv.org/list/math.NT/recent">Number Theory in arXiv</a>
+<a href="https://math.ou.edu/~kmartin/afrefs.html">Automorphic Forms Online References on Kimball Martin's Page</a>
+<a href="https://mathscinet.ams.org/mathscinet">MathSciNet</a>
+<a href="https://www.genealogy.math.ndsu.nodak.edu/index.php">Mathematics Genealogy Project</a>
+</li>
+
+<li>
+<a href="http://www.numbertheory.org/ntw/N3.html">Number Theory Conferences</a>
+<a href="https://researchseminars.org">researchseminars.org</a>
+<a href="https://researchseminars.org/seminar/IntSemAutForms">International Seminar on Automorphic Forms</a>
+<a href="https://mathweb.ucsd.edu/~kedlaya/cgi-bin/confs.cgi">Kiran S. Kedlaya's Conference Page in Arithmetic Geometry</a>
+<a href="https://mathmeetings.net">MathMeetings.net</a>
+</li>
+
+<li>
+<a href="http://automorphicformsworkshop.org/">AFW (Automorphic Forms Workshop)</a>
+<a href="https://swc-math.github.io/aws/2024/index.html">Arizona Winter School</a>
+<a href="https://www.msri.org/web/msri/scientific/programs">MSRI Programs</a>
+<a href="https://icerm.brown.edu/programs/">ICERM Programs</a>
+</li>
+
+<li>
+<a href="http://www.math.unt.edu/~richter/TORA.html">TORA (Texas-Oklahoma Representations and Automorphic forms)</a>
+<a href="https://www.math.uni-bonn.de/people/fintzen/2022MRTC/iabout.html">Midwest Representation Theory Conference</a>
+<a href="https://people.math.sc.edu/boylan/pantshome.html">PANTS (Palmetto Number Theory Series)</a>
+</li>
+
+</ul>
+
+<hr>
+
+</div>
 
 </body>
 </html>
-
